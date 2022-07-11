@@ -1,4 +1,9 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
-@Controller('courses')
-export class CoursesController {}
+@Controller('courses') //Rota principal --pode definir no metodo
+export class CoursesController {
+  @Get('list') //rota aninhada -- parametro
+  findAll() {
+    return 'Listagem de Cursos'
+  }
+}
