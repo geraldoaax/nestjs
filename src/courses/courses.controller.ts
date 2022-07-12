@@ -1,7 +1,12 @@
 import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Patch, Post, Res } from '@nestjs/common';
+import { CoursesService } from './courses.service';
 
 @Controller('courses') //Rota principal --pode definir no metodo
 export class CoursesController {
+  constructor(private readonly coursesService: CoursesService) {
+  }
+
+
   @Get() //rota aninhada -- parametro
   findAll(@Res() response) {
     return response.status(200).send('Listagem de Cursos')
